@@ -31,12 +31,16 @@ namespace DataSakura.Runtime.Battle.Shooting
         {
             var instance = Object.Instantiate(_bulletPrefab, spawnPoint.position, spawnPoint.rotation);
 
-            BulletConfig bulletConfig = isPlayer ? _configContainer.PlaneConfig.Bullet : _configContainer.BotPlaneConfig.Bullet;
+            BulletConfig bulletConfig = isPlayer 
+                ? _configContainer.PlaneConfig.Bullet 
+                : _configContainer.BotPlaneConfig.Bullet;
 
-            int collideMask =
-                LayerMask.NameToLayer(isPlayer ? RuntimeConstants.PhysicLayers.PlayerBullet : RuntimeConstants.PhysicLayers.EnemyBullet);
+            int collideMask = LayerMask.NameToLayer(isPlayer 
+                    ? RuntimeConstants.PhysicLayers.PlayerBullet 
+                    : RuntimeConstants.PhysicLayers.EnemyBullet);
 
             instance.Initialize(bulletConfig, collideMask);
+            
             return instance;
         }
     }
