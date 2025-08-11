@@ -330,7 +330,7 @@ namespace DataSakura.Runtime.Battle.Airplane
         private void CalculateForwardSpeed()
         {
             // Forward speed is the speed in the planes's forward direction (not the same as its velocity, eg if falling in a stall)
-            var localVelocity = transform.InverseTransformDirection(_rb.velocity);
+            var localVelocity = transform.InverseTransformDirection(_rb.linearVelocity);
             ForwardSpeed = Mathf.Max(0, localVelocity.z);
         }
 
